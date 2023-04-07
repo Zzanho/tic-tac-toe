@@ -123,7 +123,6 @@ const Game = (() => {
         }
     };
 
-
     const displayTurn = () => {
         const turnDisplay = document.getElementById("turn-display");
         turnDisplay.textContent = `${currentPlayer.getName()}'s turn`;
@@ -135,65 +134,64 @@ const Game = (() => {
         startGame(player1.getName(), player2.getName());
     });
 
+    const cells = document.querySelectorAll(".cell");
+    cells.forEach((cell) => {
+        cell.addEventListener("click", () => {
+            const index = cell.getAttribute("data-index");
+            Game.playTurn(index);
+        });
+    });
+
+    const showGameBoard = () => {
+        const gameBoard = document.getElementById("board");
+        const modeSelect = document.getElementById("mode-selection");
+        const changeMode = document.getElementById("change-mode");
+        const turnDisplay = document.getElementById("turn-display");
+        gameBoard.style.display = "flex";
+        modeSelect.style.display = "none";
+        changeMode.style.display = "flex";
+        turnDisplay.style.display = "flex";
+    };
+
+    const hideGameBoard = () => {
+        const modeSelect = document.getElementById("mode-selection");
+        const gameBoard = document.getElementById("board");
+        const resetButton = document.getElementById("restart-button");
+        const changeMode = document.getElementById("change-mode");
+        const turnDisplay = document.getElementById("turn-display");
+        resetButton.style.display = "none";
+        changeMode.style.display = "none";
+        modeSelect.style.display = "flex";
+        gameBoard.style.display = "none";
+        turnDisplay.style.display = "none";
+    };
+
+    const humanButton = document.querySelector("#two-player-btn");
+    humanButton.addEventListener("click", () => {
+        const name1 = 'player 1';
+        const name2 = 'player 2';
+        showGameBoard();
+        Game.startGame(name1, name2);
+
+    });
+
+    const aiButton = document.querySelector("#ai-player-btn");
+    aiButton.addEventListener("click", () => {
+        const name1 = "player 1";
+        const name2 = "Computer";
+        showGameBoard();
+        Game.startGame(name1, name2);
+
+    });
+
+    const changeButton = document.querySelector("#change-mode");
+    changeButton.addEventListener("click", () => {
+
+        hideGameBoard();
+    });
+
     return { startGame, playTurn, resetBoard };
 })();
 
-const cells = document.querySelectorAll(".cell");
-cells.forEach((cell) => {
-    cell.addEventListener("click", () => {
-        const index = cell.getAttribute("data-index");
-        Game.playTurn(index);
-    });
-});
 
-const showGameBoard = () => {
-    const gameBoard = document.getElementById("board");
-    const modeSelect = document.getElementById("mode-selection");
-
-    const changeMode = document.getElementById("change-mode");
-    const turnDisplay = document.getElementById("turn-display");
-    gameBoard.style.display = "flex";
-
-    modeSelect.style.display = "none";
-    changeMode.style.display = "flex";
-    turnDisplay.style.display = "flex";
-};
-
-const hideGameBoard = () => {
-    const modeSelect = document.getElementById("mode-selection");
-    const gameBoard = document.getElementById("board");
-    const resetButton = document.getElementById("restart-button");
-    const changeMode = document.getElementById("change-mode");
-    const turnDisplay = document.getElementById("turn-display");
-    resetButton.style.display = "none";
-    changeMode.style.display = "none";
-    modeSelect.style.display = "flex";
-    gameBoard.style.display = "none";
-    turnDisplay.style.display = "none";
-};
-
-const humanButton = document.querySelector("#two-player-btn");
-humanButton.addEventListener("click", () => {
-    const name1 = 'player 1';
-    const name2 = 'player 2';
-    showGameBoard();
-    Game.startGame(name1, name2);
-
-});
-
-const aiButton = document.querySelector("#ai-player-btn");
-aiButton.addEventListener("click", () => {
-    const name1 = "player 1";
-    const name2 = "Computer";
-    showGameBoard();
-    Game.startGame(name1, name2);
-
-});
-
-
-const changeButton = document.querySelector("#change-mode");
-changeButton.addEventListener("click", () => {
-
-    hideGameBoard();
-});
 
