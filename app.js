@@ -123,6 +123,7 @@ const Game = (() => {
         }
     };
 
+
     const displayTurn = () => {
         const turnDisplay = document.getElementById("turn-display");
         turnDisplay.textContent = `${currentPlayer.getName()}'s turn`;
