@@ -1,22 +1,24 @@
 * {
     box-sizing: border-box;
+    font-family: 'Chango', cursive;
 }
 
 body {
     background-color: #f8e4ff;
     margin: 0;
     padding: 0;
+
 }
 
 h1 {
     text-align: center;
     margin-top: 50px;
-    font-family: 'Chango', cursive;
+
     font-size: 3em;
     color: #6930c3;
 }
 
-.board {
+#board {
     margin: 50px auto;
     width: 300px;
     height: 300px;
@@ -44,7 +46,7 @@ h1 {
     align-items: center;
     font-size: 3em;
     color: #6930c3;
-    font-family: 'Chango', cursive;
+
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     transition: background-color 0.2s ease;
 }
@@ -57,7 +59,7 @@ h1 {
     cursor: default;
 }
 
-.restart-button {
+#restart-button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -72,12 +74,72 @@ h1 {
     transition: background-color 0.2s ease;
 }
 
-.restart-button:hover {
+#restart-button:hover {
     background-color: #5229a3;
 }
 
-.restart-button:active {
+#restart-button:active {
     background-color: #6930c3;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}
+
+#mode-selection,
+#change-mode {
+    display: flex;
+
+    gap: 10px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    #mode-selection {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Chango', cursive;
+    font-size: 2em;
+    color: #6930c3;
+
+}
+
+#mode-selection button,
+#change-mode button {
+    margin: 0 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    background-color: #6930c3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Chango', cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s ease;
+}
+
+#mode-selection button:hover {
+    background-color: #5229a3;
+}
+
+#mode-selection button:active {
+    background-color: #6930c3;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#turn-display {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    font-size: 2em;
+    color: #57535e;
 }

@@ -6,29 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <h1>Tic Tac Toe Game</h1>
-    <div class="board">
+
+    <div id="mode-selection">
+        <h2>Select a mode:</h2>
+        <button id="two-player-btn">Two Players</button>
+        <button id="ai-player-btn">Play with AI</button>
+    </div>
+
+    <div id="change-mode" style="display: none;">
+        <button id="change-mode">
+            Change Mode
+        </button>
+    </div>
+    <div id="turn-display" style="display: none;"></div>
+
+
+    <div id="board" style="display: none;">
         <div class="row">
-            <div class="cell" id="0"></div>
-            <div class="cell" id="1"></div>
-            <div class="cell" id="2"></div>
+            <div class="cell" id="0" data-index="0"></div>
+            <div class="cell" id="1" data-index="1"></div>
+            <div class="cell" id="2" data-index="2"></div>
         </div>
         <div class="row">
-            <div class="cell" id="3"></div>
-            <div class="cell" id="4"></div>
-            <div class="cell" id="5"></div>
+            <div class="cell" id="3" data-index="3"></div>
+            <div class="cell" id="4" data-index="4"></div>
+            <div class="cell" id="5" data-index="5"></div>
         </div>
         <div class="row">
-            <div class="cell" id="6"></div>
-            <div class="cell" id="7"></div>
-            <div class="cell" id="8"></div>
+            <div class="cell" id="6" data-index="6"></div>
+            <div class="cell" id="7" data-index="7"></div>
+            <div class="cell" id="8" data-index="8"></div>
         </div>
     </div>
-    <button class="restart-button">Restart Game</button>
+
+
+    <button id="restart-button" style="display: none;">Restart Game</button>
     <script src="app.js"></script>
 </body>
 
